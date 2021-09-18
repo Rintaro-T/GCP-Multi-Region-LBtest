@@ -7,7 +7,7 @@ resource "google_compute_instance_template" "mrlb-tokyo" {
   machine_type   = var.instance_type
   can_ip_forward = false
 
-  tags = ["mrlb-http"]
+  tags = ["mrlb-http", "mrlb-icmp"]
 
   disk {
     source_image = "csnginx-tokyo"
@@ -34,7 +34,7 @@ resource "google_compute_instance_template" "mrlb-vegas" {
   machine_type   = var.instance_type
   can_ip_forward = false
 
-  tags = ["mrlb-http"]
+  tags = ["mrlb-http", "mrlb-icmp"]
 
   disk {
     source_image = "csnginx-vegas"

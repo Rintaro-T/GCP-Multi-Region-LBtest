@@ -22,14 +22,10 @@ resource "google_compute_subnetwork" "mrlb-vegas" {
 }
 
 #httpファイヤウォールの生成．
-resource "google_compute_firewall" "mrlb-fw" {
+resource "google_compute_firewall" "mrlb-http-fw" {
   project = local.project
   name    = "mrlb-http"
   network = google_compute_network.mrlb.name
-
-  allow {
-    protocol = "icmp"
-  }
 
   allow {
     protocol = "tcp"
@@ -38,3 +34,15 @@ resource "google_compute_firewall" "mrlb-fw" {
   target_tags = ["mrlb-http"]
 }
 
+#icmpファイヤウォールの生成．
+resource "google_compute_firewall" "mrlb-icmp-fw" {
+  project = local.project
+  name    = "mrlb-icmp"
+  network = google_compute_network.mrlb.name
+
+  allow {
+    protocol = "icmp"
+  }
+
+  target_tags = ["mrlb-icmp"]
+}
