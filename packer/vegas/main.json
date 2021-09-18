@@ -1,0 +1,25 @@
+{
+  "variables": {
+    "project_id": "multi-region-lbtest-20210917",
+    "image_id": "centos-stream-8",
+    "image_name": "csnginx-vegas",
+    "image_zone": "us-west4-b",
+    "user": "packer"
+  },
+  "builders":[
+    {
+      "type": "googlecompute",
+      "project_id": "{{user `project_id`}}",
+      "source_image_family": "{{user `image_id`}}",
+      "ssh_username": "{{user `user`}}",
+      "zone": "{{ user `image_zone` }}",
+      "image_name": "{{user `image_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "./ansible-playbook.yaml",
+      "user": "{{user `user`}}"
+    }
+  ]}
