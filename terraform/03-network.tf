@@ -35,6 +35,6 @@ resource "google_compute_firewall" "mrlb-fw" {
     protocol = "tcp"
     ports    = ["80"]
   }
-
+  target_tags = ["mrlb-http"]
 }
 
