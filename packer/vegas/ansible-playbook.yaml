@@ -1,0 +1,32 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: yum update
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: latest
+
+    - name: Copy contents
+      copy:
+        src: ./contents/
+        dest: /usr/share/nginx/html
+
+    - name: Start Nginx
+      systemd:
+        state: started
+        enabled: yes
+        name: nginx
+
+#    - name: Firewalld setting of http port
+#      firewalld:
+#        immediate: true
+#        permanent: true
+#        state: enabled
+#        service: http
+#        zone: public
