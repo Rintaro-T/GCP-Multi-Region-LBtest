@@ -6,7 +6,7 @@ resource "google_compute_region_instance_group_manager" "mrlb-group-tokyo" {
 
   base_instance_name        = "mrlb-tokyo"
   region                    = var.instance_region
-  distribution_policy_zones = [var.instance_zone, var.instance_zone2, var.instance_zone3]
+  distribution_policy_zones = var.instance_zones
 
   version {
     instance_template = google_compute_instance_template.mrlb-tokyo.id
@@ -21,7 +21,7 @@ resource "google_compute_region_instance_group_manager" "mrlb-group-vegas" {
 
   base_instance_name        = "mrlb-vegas"
   region                    = var.instance_region2
-  distribution_policy_zones = [var.instance_zone4, var.instance_zone5, var.instance_zone6]
+  distribution_policy_zones = var.instance_zones2
 
   version {
     instance_template = google_compute_instance_template.mrlb-vegas.id

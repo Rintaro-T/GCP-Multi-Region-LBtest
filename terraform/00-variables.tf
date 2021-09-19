@@ -21,36 +21,17 @@ variable "instance_region2" {
 }
 
 #region1 zones---------------------------------------------
-variable "instance_zone" {
-  type    = string
-  default = "asia-northeast1-b"
+variable "instance_zones" {
+  type    = list(string)
+  default = ["asia-northeast1-a", "asia-northeast1-b", "asia-northeast1-c"]
 }
 
-variable "instance_zone2" {
-  type    = string
-  default = "asia-northeast1-a"
+variable "instance_zones2" {
+  type    = list(string)
+  default = ["us-west4-a", "us-west4-b", "us-west4-c"]
 }
 
-variable "instance_zone3" {
-  type    = string
-  default = "asia-northeast1-c"
-}
-
-variable "instance_zone4" {
-  type    = string
-  default = "us-west4-b"
-}
-
-variable "instance_zone5" {
-  type    = string
-  default = "us-west4-a"
-}
-
-variable "instance_zone6" {
-  type    = string
-  default = "us-west4-c"
-}
-
+#Service Account ------------------------------------------
 variable "sa_name" {
   type    = string
   default = "nixie"
