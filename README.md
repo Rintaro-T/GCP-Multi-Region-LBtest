@@ -74,7 +74,7 @@ csnginx-vegas                                         multi-region-lbtest-202109
 
 ```
 $ cd ~/GCP/GCP-Multi-Region-LBtest/terraform
-$ sed s/multi-region-lbtest-20210917/YOUR_PROJECT_ID/g -i ./01-project-name
+$ sed s/multi-region-lbtest-20210917/YOUR_PROJECT_ID/g -i ./01-common.tf
 $ terraform init
 $ terraform plan
 $ terraform apply
