@@ -8,6 +8,3 @@ terraform {
   }
 }
 
-#provider "google" {
-#  project = "multi-region-lbtest"
-#}
