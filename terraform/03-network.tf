@@ -21,28 +21,18 @@ resource "google_compute_subnetwork" "mrlb-vegas" {
   network       = google_compute_network.mrlb.id
 }
 
-#httpファイヤウォールの生成．
+#for_eachを用いたhttpファイヤウォールとicmpファイアウォールの生成．
 resource "google_compute_firewall" "mrlb-http-fw" {
+  for_each = local.fw-rules
+
   project = local.project
-  name    = "mrlb-http"
+  name    = each.key
   network = google_compute_network.mrlb.name
 
   allow {
-    protocol = "tcp"
-    ports    = ["80"]
+    protocol = each.value.protocol
+    ports    = each.value.ports
   }
-  target_tags = ["mrlb-http"]
+  target_tags = [each.key]
 }
 
-#icmpファイヤウォールの生成．
-resource "google_compute_firewall" "mrlb-icmp-fw" {
-  project = local.project
-  name    = "mrlb-icmp"
-  network = google_compute_network.mrlb.name
-
-  allow {
-    protocol = "icmp"
-  }
-
-  target_tags = ["mrlb-icmp"]
-}
