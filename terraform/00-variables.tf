@@ -34,7 +34,7 @@ variable "instance_zones2" {
 #Service Account ------------------------------------------
 variable "sa_name" {
   type    = string
-  default = "nixie"
+  default = "mrlb-vm"
 }
 
 
