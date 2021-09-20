@@ -16,7 +16,7 @@ resource "google_compute_instance_template" "mrlb-tokyo" {
   }
   network_interface {
     network    = google_compute_network.mrlb.id
-    subnetwork = google_compute_subnetwork.mrlb-tokyo.id
+    subnetwork = google_compute_subnetwork.mrlb["tokyo"].id
   }
   service_account {
     email  = google_service_account.mrlb.email
@@ -43,7 +43,7 @@ resource "google_compute_instance_template" "mrlb-vegas" {
   }
   network_interface {
     network    = google_compute_network.mrlb.id
-    subnetwork = google_compute_subnetwork.mrlb-vegas.id
+    subnetwork = google_compute_subnetwork.mrlb["vegas"].id
   }
   service_account {
     email  = google_service_account.mrlb.email
