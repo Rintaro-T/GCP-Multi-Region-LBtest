@@ -5,19 +5,14 @@ resource "google_compute_network" "mrlb" {
   auto_create_subnetworks = false
 }
 
-resource "google_compute_subnetwork" "mrlb-tokyo" {
-  project       = local.project
-  name          = "${var.base_name}-sub-tokyo"
-  ip_cidr_range = "192.168.120.0/24"
-  region        = var.instance_region
-  network       = google_compute_network.mrlb.id
-}
+# for_eachを用いたsubnetworkの生成
+resource "google_compute_subnetwork" "mrlb" {
+  for_each = local.subnets
 
-resource "google_compute_subnetwork" "mrlb-vegas" {
   project       = local.project
-  name          = "${var.base_name}-sub-vegas"
-  ip_cidr_range = "192.168.121.0/24"
-  region        = var.instance_region2
+  name          = "${var.base_name}-${each.key}"
+  ip_cidr_range = each.value.ip_cidr_range
+  region        = each.value.region
   network       = google_compute_network.mrlb.id
 }
 
