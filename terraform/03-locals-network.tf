@@ -1,7 +1,5 @@
 
 # これは03-network.tf内のfor_eachで使うためのlocalが格納されています
-# また，04-instance-template.tfにおいてもfor_eachでsubnetsのeach.keyのみ使用します．
-# これは04-instance-template.tf内においてsubnetworkを呼び出す箇所があり，複数箇所を編集しなおす必要がなくなるため非常に効果的です．
 
 locals {
 
