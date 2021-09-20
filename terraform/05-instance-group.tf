@@ -9,7 +9,7 @@ resource "google_compute_region_instance_group_manager" "mrlb-group-tokyo" {
   distribution_policy_zones = var.instance_zones
 
   version {
-    instance_template = google_compute_instance_template.mrlb-tokyo.id
+    instance_template = google_compute_instance_template.mrlb["tokyo"].id
   }
 
 }
@@ -24,7 +24,7 @@ resource "google_compute_region_instance_group_manager" "mrlb-group-vegas" {
   distribution_policy_zones = var.instance_zones2
 
   version {
-    instance_template = google_compute_instance_template.mrlb-vegas.id
+    instance_template = google_compute_instance_template.mrlb["vegas"].id
   }
 
 }
