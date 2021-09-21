@@ -1,7 +1,7 @@
 #Packerにより生成したnginxとコンテンツの入ったイメージからテンプレートイメージを作る
 resource "google_compute_instance_template" "mrlb" {
   for_each = local.instance_templates
-  
+
   project     = local.project
   name        = "mrlb-nginx-template-${each.key}"
   description = "nginx server for ${each.key}"

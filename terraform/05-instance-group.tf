@@ -31,7 +31,7 @@ resource "google_compute_region_autoscaler" "mrlb-autoscaler" {
     cooldown_period = 60
 
     cpu_utilization {
-      target = 0.4
+      target = var.cpu_utilization_target
     }
   }
 }
