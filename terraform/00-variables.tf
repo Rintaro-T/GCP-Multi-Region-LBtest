@@ -37,4 +37,8 @@ variable "sa_name" {
   default = "mrlb-vm"
 }
 
-
+#Instance Group Auto Scalerの閾値のCPU使用率
+variable "cpu_utilization_target" {
+  type    = number
+  default = 0.4
+}
