@@ -79,6 +79,15 @@ $ terraform init
 $ terraform plan
 $ terraform apply
 ```
+#### Management project in Terraform ( Optional )
+
+*You have to change YOUR_PROJECT_ID to your project name.*
+```
+$ cd ~/GCP/GCP-Multi-Region-LBtest/terraform
+$ sed s/multi-region-lbtest-20210917/YOUR_PROJECT_ID/g -i ./01-common.tf
+$ sed 13,16s/^#//g -i ./01-common.tf
+$ terraform import google_project.YOUR_PROJECT_ID YOUR_PROJECT_ID
+```
 
 #### Check the Service ( Optional )
 
