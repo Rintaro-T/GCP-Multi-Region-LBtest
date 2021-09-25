@@ -7,6 +7,10 @@ locals {
   region1 = "asia-northeast1"
   region2 = "us-west4"
 
+  # Region毎のIPアドレス範囲
+  ip_region1 = "192.168.120.0/24"
+  ip_region2 = "192.168.121.0/24"
+
 }
 
 #projectもterraformで管理するためにはコメントアウトを外す．
