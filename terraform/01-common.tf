@@ -9,3 +9,8 @@ locals {
 
 }
 
+#projectもterraformで管理するためにはコメントアウトを外す．
+#resource "google_project" "multi-region-lbtest-20210917" {
+#  name = "Multi-Region-LBtest"
+#  project_id = local.project
+#}
