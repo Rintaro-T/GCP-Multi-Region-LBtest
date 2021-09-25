@@ -9,13 +9,13 @@ locals {
 
     # Tokyoのsubnet
     tokyo = {
-      ip_cidr_range = "192.168.120.0/24"
+      ip_cidr_range = local.ip_region1
       region        = local.region1
     }
 
     # LasVegasのsubnet
     vegas = {
-      ip_cidr_range = "192.168.121.0/24"
+      ip_cidr_range = local.ip_region2
       region        = local.region2
     }
   }
